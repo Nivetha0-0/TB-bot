@@ -1,6 +1,6 @@
-# Forward Trial - Local Setup
+# Local Setup
 
-This is a Streamlit application for handling animal bite-related queries with multilingual support and AI-powered responses.
+This is a Streamlit application for handling tuberculosis related queries with multilingual support and AI-powered responses.
 
 ## Prerequisites
 
@@ -12,9 +12,8 @@ Before running this application locally, you'll need:
 4. **Google Cloud Project** with the following APIs enabled:
    - Cloud Translation API
    - Cloud Text-to-Speech API
-   - Cloud Speech-to-Text API
+   - Cloud Speech-to-Text API (for future enhancement)
 5. **Google Cloud Service Account** with appropriate permissions
-6. **Firebase Project** (no longer required - forwarding is now print-based)
 
 ## Setup Instructions
 
@@ -27,12 +26,7 @@ pip install -r requirements.txt
 
 ### 2. Environment Configuration
 
-1. Copy the example environment file:
-   ```bash
-   cp env_example.txt .env
-   ```
-
-2. Edit the `.env` file and fill in your credentials:
+1. Edit the `.env` file and fill in your credentials:
 
    ```env
    # OpenAI Configuration
@@ -56,7 +50,7 @@ pip install -r requirements.txt
 2. Enable the required APIs:
    - Cloud Translation API
    - Cloud Text-to-Speech API
-   - Cloud Speech-to-Text API
+   - Cloud Speech-to-Text API (for future enhancement)
 3. Create a Service Account with appropriate permissions
 4. Download the service account key JSON file
 5. Copy the contents of the JSON file to the `GOOGLE_APPLICATION_CREDENTIALS` environment variable
@@ -89,57 +83,6 @@ The application will be available at `http://localhost:8501`
 - **AI-Powered Responses**: Uses OpenAI GPT models for intelligent responses
 - **Translation Services**: Google Cloud Translation API integration
 - **Text-to-Speech**: Google Cloud Text-to-Speech API integration
-- **Speech-to-Text**: Google Cloud Speech-to-Text API integration
+- **Speech-to-Text**: Google Cloud Speech-to-Text API integration (future enhancement)
 - **Database Storage**: MongoDB integration for storing interactions
 - **Forwarding System**: Print-based forwarding of unanswered questions to doctor
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Import Errors**: Make sure all dependencies are installed with `pip install -r requirements.txt`
-
-2. **Environment Variables**: Ensure your `.env` file is in the same directory as the Python files
-
-3. **Google Cloud Authentication**: Verify your service account has the necessary permissions and the JSON key is correctly formatted
-
-4. **MongoDB Connection**: Check your MongoDB URI and ensure the database and collection exist
-
-5. **OpenAI API**: Verify your OpenAI API key is valid and has sufficient credits
-
-### Error Messages
-
-- **"Secret not found"**: Check your `.env` file and ensure all required environment variables are set
-- **"Failed to connect to MongoDB"**: Verify your MongoDB URI and network connectivity
-- **"Error initializing Google Cloud"**: Check your Google Cloud credentials and project configuration
-
-## File Structure
-
-```
-forward-trial-main/
-├── main_for_stream.py      # Main Streamlit application
-├── tran_works.py          # Translation and Google Cloud services
-├── forwarding_works.py    # Firebase integration
-├── config.py             # Configuration management
-├── requirements.txt      # Python dependencies
-├── env_example.txt       # Example environment variables
-└── README.md            # This file
-```
-
-## Deployment
-
-For deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
-
-### Quick Deploy Options:
-- **Streamlit Cloud** (Recommended): [share.streamlit.io](https://share.streamlit.io)
-- **Heroku**: [heroku.com](https://heroku.com)
-- **Railway**: [railway.app](https://railway.app)
-- **Render**: [render.com](https://render.com)
-
-## Support
-
-If you encounter any issues, please check:
-1. All environment variables are properly set
-2. All required services are running
-3. Network connectivity to external APIs
-4. Python version compatibility (3.8+) 
